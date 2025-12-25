@@ -1,5 +1,17 @@
-extends layout
+h1 DID Resolver (Universal Resolver)
 
-block content
-  h1= title
-  p Welcome to #{title}
+form(method="POST" action="/resolve")
+  input(
+    type="text"
+    name="did"
+    placeholder="did:key:z6Mk..."
+    style="width: 400px"
+  )
+  button(type="submit") Resolve
+
+if error
+  p(style="color:red")= error
+
+if result
+  h2 Ergebnis
+  pre= result
